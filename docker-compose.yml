@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  db:
+    build: .
+    container_name: mi_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: mi_base
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: clave
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./scripts:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
