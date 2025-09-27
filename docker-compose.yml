@@ -6,9 +6,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: mi_base
-      MYSQL_USER: usuario
-      MYSQL_PASSWORD: clave
+      MYSQL_DATABASE: primac
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./data:/var/lib/mysql
