@@ -1,0 +1,22 @@
+# Base de datos MySQL (archivos generados)
+data/
+
+# Python cache
+scripts/__pycache__/
+*.pyc
+*.pyo
+__pycache__/
+
+# Docker
+.dockerignore
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

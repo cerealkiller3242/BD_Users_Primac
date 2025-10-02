@@ -38,3 +38,17 @@ CREATE TABLE agents (
     user_id BIGINT,
     CONSTRAINT fk_agent_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TABLE beneficiaries (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    client_id BIGINT NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    document_type VARCHAR(50) NOT NULL,
+    document_number VARCHAR(50) NOT NULL UNIQUE,
+    birth_date DATE NOT NULL,
+    relationship VARCHAR(50) NOT NULL,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    CONSTRAINT fk_beneficiary_client FOREIGN KEY (client_id) REFERENCES clients(user_id) ON DELETE CASCADE
+);
