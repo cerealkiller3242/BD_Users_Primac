@@ -8,7 +8,10 @@ ENV MYSQL_PASSWORD=admin
 ENV INIT_DB=true
 
 # Instalar Python para Faker
-RUN apt-get update && apt-get install -y python3 python3-pip && rm -rf /var/lib/apt/lists/*
+RUN echo "deb [trusted=yes] http://repo.mysql.com/apt/debian/ bullseye mysql-8.0" > /etc/apt/sources.list.d/mysql.list && \
+    apt-get update --allow-unauthenticated && \
+    apt-get install -y --allow-unauthenticated python3 python3-pip && \
+    rm -rf /var/lib/apt/lists/*
 COPY requirements.txt /requirements.txt
 RUN pip3 install --break-system-packages -r /requirements.txt
 
