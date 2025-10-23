@@ -1,5 +1,5 @@
 services:
-  db:
+  mysql:
     build: .
     container_name: mi_db
     ports:
@@ -11,6 +11,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - primac
 
   adminer:
     image: adminer
@@ -21,3 +23,7 @@ services:
       
 volumes:
   db_data:
+
+networks:
+  primac:
+    external: true
